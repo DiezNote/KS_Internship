@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">KS_Internship</string>
     <string name="action_settings">Settings</string>
+    <string name="name">Введите имя</string>
+    <string name="last_name">Введите фамилию</string>
+    <string name="age">Введите возраст</string>
+    <string name="textview_name">TextView</string>
+    <string name="textview_last">Фамилия</string>
+    <string name="textview_age">Возраст</string>
+    <string name="btn_enter">Ввести</string>
+    <string name="title_activity_second">SecondActivity</string>
 </resources>
