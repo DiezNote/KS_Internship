@@ -31,7 +31,7 @@
                 tools:text="Имя"/>
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8sp"
@@ -41,7 +41,7 @@
                 android:ems="10"
                 android:hint="@string/name"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"/>
+                android:inputType="textCapSentences"/>
 
             <TextView
                 android:id="@+id/textView2"
@@ -55,7 +55,7 @@
                 android:textColor="@android:color/background_dark"/>
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/editTextLast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8sp"
@@ -65,7 +65,7 @@
                 android:ems="10"
                 android:hint="@string/last_name"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"/>
+                android:inputType="textCapSentences"/>
 
             <TextView
                 android:id="@+id/textView3"
@@ -79,7 +79,7 @@
                 android:textColor="@android:color/background_dark"/>
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/editTextAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8sp"
@@ -89,16 +89,17 @@
                 android:ems="10"
                 android:hint="@string/age"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"/>
+                android:inputType="number"/>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonEnter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8sp"
                 android:layout_marginLeft="16sp"
                 android:layout_marginRight="16sp"
                 android:layout_marginTop="50sp"
+                android:onClick="onClick"
                 android:text="@string/btn_enter"/>
         </LinearLayout>
     </ScrollView>

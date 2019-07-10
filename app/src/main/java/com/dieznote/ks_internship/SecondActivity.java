@@ -6,8 +6,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
+    TextView Ans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +17,11 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Ans = findViewById(R.id.textViewAns);
 
+        Ans.setText("Имя: "+getIntent().getStringExtra("FirstName")+"\n"+"Фамилия: "+getIntent().getStringExtra("LastName")+"\n"+"Возраст: "+String.valueOf(getIntent().getIntExtra("Age",0)));
     }
-
+    public void onClick(View view){
+        finish();
+    }
 }

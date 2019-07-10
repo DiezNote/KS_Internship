@@ -4,7 +4,7 @@
     <string name="name">Введите имя</string>
     <string name="last_name">Введите фамилию</string>
     <string name="age">Введите возраст</string>
-    <string name="textview_name">TextView</string>
+    <string name="textview_name">Имя</string>
     <string name="textview_last">Фамилия</string>
     <string name="textview_age">Возраст</string>
     <string name="btn_enter">Ввести</string>
