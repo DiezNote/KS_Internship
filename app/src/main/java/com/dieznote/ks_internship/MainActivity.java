@@ -53,14 +53,23 @@ public class MainActivity extends AppCompatActivity {
             isOk++;
             intAge = Integer.valueOf(age.getText().toString().trim());
         }
-        if(isOk>2){
-            Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-            intent.putExtra("FirstName",stringFirstName);
-            intent.putExtra("LastName",stringLastName);
-            intent.putExtra("Age",intAge);
-            Log.w(TAG,stringFirstName+" "+stringLastName+" "+intAge);
+        if (isOk > 2) {
+
+            Person person = new Person(firstName.getText().toString().trim(), lastName.getText().toString().trim(), Integer.valueOf(age.getText().toString().trim()));
+
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+            intent.putExtra("PersonObject",person);
+            intent.putExtra("FirstName", stringFirstName);
+            intent.putExtra("LastName", stringLastName);
+            intent.putExtra("Age", intAge);
+
+            Log.w(TAG, stringFirstName + " " + stringLastName + " " + intAge);
+            Log.w(TAG, person.toString());
+
             startActivity(intent);
-        }else {
+
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Проверьте все поля", Toast.LENGTH_SHORT);
             toast.show();
