@@ -19,7 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Ans = findViewById(R.id.textViewAns);
+        //Ans = findViewById(R.id.textViewAns);
         intent = getIntent();
 
         Person person = intent.getParcelableExtra("PersonObject");

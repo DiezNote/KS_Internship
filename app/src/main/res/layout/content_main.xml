@@ -11,96 +11,34 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
+            <fragment
+                android:id="@+id/fragmentFirstMainActiv"
+                android:name="com.dieznote.ks_internship.FirstFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_name"
-                android:textColor="@android:color/background_dark"
-                tools:text="Имя"/>
+                tools:layout="@layout/fragment_first"/>
 
-            <EditText
-                android:id="@+id/editTextName"
+            <fragment
+                android:id="@+id/fragmentSecondMainActiv"
+                android:name="com.dieznote.ks_internship.SecondFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:ems="10"
-                android:hint="@string/name"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"/>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_last"
-                android:textColor="@android:color/background_dark"/>
-
-            <EditText
-                android:id="@+id/editTextLast"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:ems="10"
-                android:hint="@string/last_name"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"/>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_age"
-                android:textColor="@android:color/background_dark"/>
-
-            <EditText
-                android:id="@+id/editTextAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:ems="10"
-                android:hint="@string/age"
-                android:importantForAutofill="no"
-                android:inputType="number"/>
-
-            <Button
-                android:id="@+id/buttonEnter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="50sp"
-                android:onClick="onClick"
-                android:text="@string/btn_enter"/>
+                tools:layout="@layout/fragment_second"/>
         </LinearLayout>
     </ScrollView>
 
