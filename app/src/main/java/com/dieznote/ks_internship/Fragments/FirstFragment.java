@@ -1,6 +1,7 @@
-package com.dieznote.ks_internship;
+package com.dieznote.ks_internship.Fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,10 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
+import com.dieznote.ks_internship.Person;
+import com.dieznote.ks_internship.R;
+
 
 public class FirstFragment extends Fragment {
 
+    private EditText firstName, lastName, age;
+    private Button btn;
+    private Person person;
 
+    private ButtonSelectListener buttonSelectListener;
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -28,16 +37,35 @@ public class FirstFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            buttonSelectListener = (ButtonSelectListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement onSomeEventListener");
+        }
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
-        Button btn = getActivity().findViewById(R.id.buttonEnter);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_first, container, false);
+
+        firstName = v.findViewById(R.id.editTextName);
+        lastName = v.findViewById(R.id.editTextLast);
+        age = v.findViewById(R.id.editTextAge);
+        btn = v.findViewById(R.id.buttonEnter);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String TAG = MainActivity.class.getSimpleName();
-                EditText firstName = getActivity().findViewById(R.id.editTextName);
-                EditText lastName = getActivity().findViewById(R.id.editTextLast);
-                EditText age = getActivity().findViewById(R.id.editTextAge);
+
                 String stringFirstName = "";
                 String stringLastName = "";
                 int intAge = 0;
@@ -62,22 +90,8 @@ public class FirstFragment extends Fragment {
                     intAge = Integer.valueOf(age.getText().toString().trim());
                 }
                 if (isOk > 2) {
-
-                    Person person = new Person(firstName.getText().toString().trim(), lastName.getText().toString().trim(), Integer.valueOf(age.getText().toString().trim()));
-
-                    //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-
-                    //intent.putExtra("PersonObject",person);
-                    //intent.putExtra("FirstName", stringFirstName);
-                    //intent.putExtra("LastName", stringLastName);
-                    //intent.putExtra("Age", intAge);
-
-                    Log.w(TAG, stringFirstName + " " + stringLastName + " " + intAge);
-                    Log.w(TAG, person.toString());
-                    TextView textView = getActivity().findViewById(R.id.secondFragmentTxt);
-                    textView.setText(person.toString());
-                    //startActivity(intent);
-
+                    person = new Person(firstName.getText().toString().trim(), lastName.getText().toString().trim(), Integer.valueOf(age.getText().toString().trim()));
+                    buttonSelectListener.onOkButtonSelected(person);
                 } else {
                     Toast toast = Toast.makeText(getActivity().getApplicationContext(),
                             "Проверьте все поля", Toast.LENGTH_SHORT);
@@ -85,13 +99,7 @@ public class FirstFragment extends Fragment {
                 }
             }
         });
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return v;
     }
-
 }

@@ -24,8 +24,8 @@
         app:layout_constraintVertical_bias="0.789">
 
         <fragment
-            android:id="@+id/fragment_one"
-            android:name="com.dieznote.ks_internship.FirstFragment"
+            android:id="@+id/fragment_1"
+            android:name="com.dieznote.ks_internship.Fragments.FirstFragment"
             android:layout_width="188dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
@@ -35,7 +35,7 @@
 
         <fragment
             android:id="@+id/fragment2"
-            android:name="com.dieznote.ks_internship.SecondFragment"
+            android:name="com.dieznote.ks_internship.Fragments.SecondFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"

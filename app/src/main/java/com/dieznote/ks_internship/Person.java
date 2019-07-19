@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class Person implements Parcelable {
     private String firstName;
     private String lastName;
+    private String mail;
     private int age;
 
     protected Person(Parcel in){

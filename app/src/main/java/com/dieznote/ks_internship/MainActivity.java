@@ -2,29 +2,27 @@ package com.dieznote.ks_internship;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    EditText firstName, lastName, age;
-    Button btn;
-    private static final String TAG = MainActivity.class.getSimpleName();
+import com.dieznote.ks_internship.Fragments.FirstFragment;
+import com.dieznote.ks_internship.Fragments.SecondFragment;
+import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
 
-    //private FragmentViewer fragmentViewer;
+import java.util.Objects;
+
+public class MainActivity extends AppCompatActivity implements ButtonSelectListener {
+
+    private FirstFragment firstFragment;
+    private SecondFragment secondFragment;
+    //private ButtonSelectListener buttonSelectListener;
     boolean inLandscapeMode;
-    FragmentManager manager;
-    FragmentTransaction transaction;
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
 
     @Override
@@ -34,28 +32,25 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        firstName = findViewById(R.id.editTextName);
-        lastName = findViewById(R.id.editTextLast);
-        age = findViewById(R.id.editTextAge);
-        btn = findViewById(R.id.buttonEnter);
+        inLandscapeMode = findViewById(R.id.fragment2) != null;
 
-        manager = getSupportFragmentManager();
-        //initFragmentLast();
-        //inLandscapeMode = findViewById(R.id.secondFragment) != null;
+        firstFragment = (FirstFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_1);
+        if (inLandscapeMode) {
+            secondFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
+        }
 
-        /*if (inLandscapeMode) {
-            fragmentViewer = (FragmentViewer) getSupportFragmentManager().findFragmentById(R.id.secondFragment);
-        }*/
-
-        /*btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick(v);
-            }
-        });*/
     }
 
-    private void onClick(View view) {
+    /*private void onClick(Person person) {
+
+        if (inLandscapeMode) {
+            secondFragment.displayPersonInfo(person);
+        } else {
+            Intent viewIntent = new Intent(MainActivity.this, SecondActivity.class);
+            viewIntent.putExtra("person", person);
+            startActivity(viewIntent);
+        }
+/*
         String stringFirstName = "";
         String stringLastName = "";
         int intAge = 0;
@@ -99,16 +94,11 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Проверьте все поля", Toast.LENGTH_SHORT);
             toast.show();
-        }
+        }*/
 
-    }
+    /*}*/
 
-    /*private void initFragmentLast(){
-        transaction = manager.beginTransaction();
-        transaction.add(R.id.)
-        transaction.commit();
-    }*/
-   /* @Override
+    /*@Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -144,5 +134,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onOkButtonSelected(Person person) {
+        if (inLandscapeMode) {
+            secondFragment.displayPersonInfo(person);
+        } else {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra("person", person);
+            startActivity(intent);
+        }
     }
 }
