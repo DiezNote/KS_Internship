@@ -40,80 +40,8 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         }
 
     }
+    //new commit
 
-    /*private void onClick(Person person) {
-
-        if (inLandscapeMode) {
-            secondFragment.displayPersonInfo(person);
-        } else {
-            Intent viewIntent = new Intent(MainActivity.this, SecondActivity.class);
-            viewIntent.putExtra("person", person);
-            startActivity(viewIntent);
-        }
-/*
-        String stringFirstName = "";
-        String stringLastName = "";
-        int intAge = 0;
-        int isOk = 0;
-
-        if (firstName.getText().toString().trim().isEmpty()) {
-            firstName.setError("Empty!");
-        } else {
-            isOk++;
-            stringFirstName = firstName.getText().toString().trim();
-        }
-        if (lastName.getText().toString().trim().isEmpty()) {
-            lastName.setError("Empty!");
-        } else {
-            isOk++;
-            stringLastName = lastName.getText().toString().trim();
-        }
-        if (age.getText().toString().trim().isEmpty()) {
-            age.setError("Empty!");
-        } else {
-            isOk++;
-            intAge = Integer.valueOf(age.getText().toString().trim());
-        }
-        if (isOk > 2) {
-
-            Person person = new Person(firstName.getText().toString().trim(), lastName.getText().toString().trim(), Integer.valueOf(age.getText().toString().trim()));
-
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-
-            intent.putExtra("PersonObject",person);
-            intent.putExtra("FirstName", stringFirstName);
-            intent.putExtra("LastName", stringLastName);
-            intent.putExtra("Age", intAge);
-
-            Log.w(TAG, stringFirstName + " " + stringLastName + " " + intAge);
-            Log.w(TAG, person.toString());
-
-            startActivity(intent);
-
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Проверьте все поля", Toast.LENGTH_SHORT);
-            toast.show();
-        }*/
-
-    /*}*/
-
-    /*@Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putString(KEY_EMAIL, emailText);
-        outState.putString(KEY_PASSWORD, passText);
-        outState.putBoolean(KEY_SOUL_TRADE, soulChecked);
-        outState.putBoolean(KEY_SPAM_AGREED, spamChecked);
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        // This One Called after "onStart()". "savedInstanceState" guaranteed not to be null.
-        super.onRestoreInstanceState(savedInstanceState);
-    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
