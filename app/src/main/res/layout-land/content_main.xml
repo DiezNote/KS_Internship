@@ -26,20 +26,21 @@
         <fragment
             android:id="@+id/fragment_1"
             android:name="com.dieznote.ks_internship.Fragments.FirstFragment"
-            android:layout_width="188dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            tools:layout="@layout/fragment_first"
-            />
+            android:layout_weight="2"
+            tools:layout="@layout/fragment_first"/>
 
         <fragment
-            android:id="@+id/fragment2"
+            android:id="@+id/fragment_2"
             android:name="com.dieznote.ks_internship.Fragments.SecondFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             tools:layout="@layout/fragment_second"/>
     </LinearLayout>
 

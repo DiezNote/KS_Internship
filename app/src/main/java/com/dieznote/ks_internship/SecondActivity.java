@@ -1,14 +1,11 @@
 package com.dieznote.ks_internship;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.dieznote.ks_internship.Fragments.SecondFragment;
+import com.dieznote.ks_internship.models.Person;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -23,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         person = (Person) getIntent().getParcelableExtra("person");
-        itemDetailFragment = (SecondFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_two);
+        itemDetailFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_two);
         itemDetailFragment.displayPersonInfo(person);
     }
 }

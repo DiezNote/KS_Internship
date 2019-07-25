@@ -3,27 +3,28 @@ package com.dieznote.ks_internship;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.dieznote.ks_internship.Fragments.FirstFragment;
 import com.dieznote.ks_internship.Fragments.SecondFragment;
 import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
+import com.dieznote.ks_internship.Listeners.OnTaskRecyclerItemClickListener;
+import com.dieznote.ks_internship.adapters.TaskRecyclerAdapter;
+import com.dieznote.ks_internship.models.Person;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements ButtonSelectListener {
 
     private FirstFragment firstFragment;
     private SecondFragment secondFragment;
-    //private ButtonSelectListener buttonSelectListener;
     boolean inLandscapeMode;
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +33,14 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        inLandscapeMode = findViewById(R.id.fragment2) != null;
+        inLandscapeMode = findViewById(R.id.fragment_2) != null;
 
-        firstFragment = (FirstFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_1);
+        firstFragment = (FirstFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_1);
         if (inLandscapeMode) {
-            secondFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
+            secondFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_2);
         }
 
     }
-    //new commit
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

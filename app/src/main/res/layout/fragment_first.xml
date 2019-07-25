@@ -2,100 +2,21 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
                                              tools:context=".Fragments.FirstFragment">
 
-    <ScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_name"
-                android:textColor="@android:color/background_dark"
-                tools:text="Имя"/>
-
-            <EditText
-                android:id="@+id/editTextName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:ems="10"
-                android:hint="@string/name"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"/>
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_last"
-                android:textColor="@android:color/background_dark"/>
-
-            <EditText
-                android:id="@+id/editTextLast"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:ems="10"
-                android:hint="@string/last_name"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"/>
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:paddingLeft="4sp"
-                android:text="@string/textview_age"
-                android:textColor="@android:color/background_dark"/>
-
-            <EditText
-                android:id="@+id/editTextAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:ems="10"
-                android:hint="@string/age"
-                android:importantForAutofill="no"
-                android:inputType="number"/>
-
-            <Button
-                android:id="@+id/buttonEnter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp"
-                android:layout_marginTop="8sp"
-                android:text="@string/btn_enter"/>
-        </LinearLayout>
-    </ScrollView>
-
+        app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>

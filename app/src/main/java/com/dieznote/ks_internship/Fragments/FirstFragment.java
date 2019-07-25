@@ -2,30 +2,40 @@ package com.dieznote.ks_internship.Fragments;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
-import com.dieznote.ks_internship.Person;
+import com.dieznote.ks_internship.Listeners.OnTaskRecyclerItemClickListener;
+import com.dieznote.ks_internship.MainActivity;
+import com.dieznote.ks_internship.adapters.TaskRecyclerAdapter;
+import com.dieznote.ks_internship.models.Person;
 import com.dieznote.ks_internship.R;
+
+import java.util.ArrayList;
 
 
 public class FirstFragment extends Fragment {
 
-    private EditText firstName, lastName, age;
-    private Button btn;
-    private Person person;
+    ArrayList<Person> persons;
+    RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    TaskRecyclerAdapter adapter;
+    private static final String TAG = MainActivity.class.getSimpleName();
+
 
     private ButtonSelectListener buttonSelectListener;
+
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -33,72 +43,66 @@ public class FirstFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.e(TAG, " OnCreate Fragment ");
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public void onAttach(Context context) {
+        Log.e(TAG, " onAttach Fragment ");
         super.onAttach(context);
         try {
             buttonSelectListener = (ButtonSelectListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement onSomeEventListener");
+            throw new ClassCastException(context.toString() + "A!");
         }
     }
 
     @Override
     public void onStart() {
+        Log.e(TAG, " onStart Fragment ");
         super.onStart();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.e(TAG, " onCreateView Fragment ");
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_first, container, false);
 
-        firstName = v.findViewById(R.id.editTextName);
-        lastName = v.findViewById(R.id.editTextLast);
-        age = v.findViewById(R.id.editTextAge);
-        btn = v.findViewById(R.id.buttonEnter);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+        persons = new ArrayList<>();
+        persons.add(new Person("Даниил", "Горпенко", 23, "dieznote@gmail.com"));
+        persons.add(new Person("Даниил1", "Горпенко1", 23, "dieznote1@gmail.com"));
+        persons.add(new Person("Даниил2", "Горпенко2", 23, "dieznote2@gmail.com"));
+        persons.add(new Person("Даниил3", "Горпенко3", 23, "dieznote3@gmail.com"));
+        persons.add(new Person("Даниил4", "Горпенко4", 23, "dieznote4@gmail.com"));
+        persons.add(new Person("Даниил5", "Горпенко5", 23, "dieznote5@gmail.com"));
+        persons.add(new Person("Даниил6", "Горпенко", 23, "dieznote@gmail.com"));
+        persons.add(new Person("Даниил7", "Горпенко1", 23, "dieznote1@gmail.com"));
+        persons.add(new Person("Даниил8", "Горпенко2", 23, "dieznote2@gmail.com"));
+        persons.add(new Person("Даниил9", "Горпенко3", 23, "dieznote3@gmail.com"));
+        persons.add(new Person("Даниил10", "Горпенко4", 23, "dieznote4@gmail.com"));
+        persons.add(new Person("Даниил11", "Горпенко5", 23, "dieznote5@gmail.com"));
+
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new TaskRecyclerAdapter(persons, getContext());
+
+        adapter.setListener(new OnTaskRecyclerItemClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onItemClick(View v, int position) {
 
-                String stringFirstName = "";
-                String stringLastName = "";
-                int intAge = 0;
-                int isOk = 0;
-
-                if (firstName.getText().toString().trim().isEmpty()) {
-                    firstName.setError("Empty!");
-                } else {
-                    isOk++;
-                    stringFirstName = firstName.getText().toString().trim();
-                }
-                if (lastName.getText().toString().trim().isEmpty()) {
-                    lastName.setError("Empty!");
-                } else {
-                    isOk++;
-                    stringLastName = lastName.getText().toString().trim();
-                }
-                if (age.getText().toString().trim().isEmpty()) {
-                    age.setError("Empty!");
-                } else {
-                    isOk++;
-                    intAge = Integer.valueOf(age.getText().toString().trim());
-                }
-                if (isOk > 2) {
-                    person = new Person(firstName.getText().toString().trim(), lastName.getText().toString().trim(), Integer.valueOf(age.getText().toString().trim()));
-                    buttonSelectListener.onOkButtonSelected(person);
-                } else {
-                    Toast toast = Toast.makeText(getActivity().getApplicationContext(),
-                            "Проверьте все поля", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                buttonSelectListener.onOkButtonSelected(persons.get(position));
             }
         });
+
+        recyclerView.setAdapter(adapter);
 
         return v;
     }

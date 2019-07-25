@@ -1,4 +1,4 @@
-package com.dieznote.ks_internship;
+package com.dieznote.ks_internship.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,16 +9,18 @@ public class Person implements Parcelable {
     private String mail;
     private int age;
 
-    protected Person(Parcel in){
-        firstName=in.readString();
-        lastName=in.readString();
-        age=in.readInt();
+    protected Person(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        age = in.readInt();
+        mail = in.readString();
     }
 
-    public Person(String firstName, String lastName, int age) {
+    public Person(String firstName, String lastName, int age, String mail) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.mail = mail;
     }
 
     public static final Creator<Person> CREATOR = new Creator<Person>() {
@@ -43,8 +45,10 @@ public class Person implements Parcelable {
         dest.writeString(firstName);
         dest.writeString(lastName);
         dest.writeInt(age);
+        dest.writeString(mail);
     }
-    public static Creator<Person> getCreator(){
+
+    public static Creator<Person> getCreator() {
         return CREATOR;
     }
 
@@ -72,10 +76,19 @@ public class Person implements Parcelable {
         this.age = age;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     @Override
     public String toString() {
-        return  "Имя = " + firstName +
+        return "Имя = " + firstName +
                 ", Фамилия = " + lastName +
-                ", Возраст = " + age;
+                ", Возраст = " + age +
+                ", Почта = " + mail;
     }
 }
