@@ -14,6 +14,7 @@ public class Person implements Parcelable {
         lastName = in.readString();
         age = in.readInt();
         mail = in.readString();
+        mail = in.readString();
     }
 
     public Person(String firstName, String lastName, int age, String mail) {

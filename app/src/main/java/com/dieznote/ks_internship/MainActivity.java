@@ -13,7 +13,8 @@ import com.dieznote.ks_internship.Fragments.FirstFragment;
 import com.dieznote.ks_internship.Fragments.SecondFragment;
 import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
 import com.dieznote.ks_internship.Listeners.OnTaskRecyclerItemClickListener;
-import com.dieznote.ks_internship.adapters.TaskRecyclerAdapter;
+//import com.dieznote.ks_internship.adapters.TaskRecyclerAdapter;
+import com.dieznote.ks_internship.models.NetResponse;
 import com.dieznote.ks_internship.models.Person;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Pokemon Search");
 
         inLandscapeMode = findViewById(R.id.fragment_2) != null;
 
@@ -64,13 +66,24 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public void onOkButtonSelected(Person person) {
         if (inLandscapeMode) {
             secondFragment.displayPersonInfo(person);
         } else {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("person", person);
+            startActivity(intent);
+        }
+    }*/
+
+    @Override
+    public void onOkButtonSelected(NetResponse response) {
+        if (inLandscapeMode) {
+            secondFragment.displayPersonInfo(response);
+        } else {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            //intent.putExtra("response", response);
             startActivity(intent);
         }
     }

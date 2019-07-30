@@ -19,8 +19,8 @@ public class SecondActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        person = (Person) getIntent().getParcelableExtra("person");
+        //person = (Person) getIntent().getParcelableExtra("person");
         itemDetailFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_two);
-        itemDetailFragment.displayPersonInfo(person);
+        //itemDetailFragment.displayPersonInfo(person);
     }
 }
