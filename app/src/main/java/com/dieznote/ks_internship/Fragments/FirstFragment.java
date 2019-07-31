@@ -41,6 +41,7 @@ import com.dieznote.ks_internship.utils.Database;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Response;
 
@@ -146,7 +147,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
+        adapter.swapCursor(data);
     }
 
     @Override
@@ -184,7 +185,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
     }
     private void updateList(NetResponse itemsToUpdate) {
         database.addApiData(itemsToUpdate);
-        getActivity().getLoaderManager().getLoader(Consts.LOADER_ID).forceLoad();
+        Objects.requireNonNull(getActivity()).getLoaderManager().getLoader(Consts.LOADER_ID).forceLoad();
     }
 
     private void handleError(ResponseErrorItem errorItem) {
