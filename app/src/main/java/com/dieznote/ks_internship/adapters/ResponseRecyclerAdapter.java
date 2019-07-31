@@ -16,7 +16,13 @@ import com.bumptech.glide.Glide;
 import com.dieznote.ks_internship.Listeners.OnTaskRecyclerItemClickListener;
 import com.dieznote.ks_internship.R;
 import com.dieznote.ks_internship.models.NetResponse;
+import com.dieznote.ks_internship.models.PokeForms;
+import com.dieznote.ks_internship.models.PokeType;
+import com.dieznote.ks_internship.models.PokeTypes;
 import com.dieznote.ks_internship.utils.Consts;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseRecyclerAdapter.ViewHolder> {
     //GitRepoRecyclerAdapter
@@ -55,13 +61,16 @@ public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseR
 
     @Override
     public void onBindViewHolder(ResponseRecyclerAdapter.ViewHolder holder, Cursor cursor) {
-        holder.description.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
+        holder.description.setText("type: "+cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
         holder.name.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_NAME)));
         Glide.with(holder.avatar).load(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_AVATAR))).placeholder(R.drawable.ic_account_multiple_grey600_24dp).into(holder.avatar);
 
     }
 
     public NetResponse getItem(int position) {
+
+        List<PokeTypes> pt = new ArrayList<PokeTypes>();
+        List<PokeForms> pf = new ArrayList<PokeForms>();
         Cursor cursor = getCursor();
         NetResponse item = new NetResponse();
 
@@ -69,11 +78,16 @@ public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseR
             item.setId(cursor.getInt(cursor.getColumnIndex(Consts.DB_COL_ID)));
             item.setName(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_NAME)));
             item.setPokeSpecies(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_SPECIES)));
-            item.setWeight(Integer.getInteger(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_WEIGHT))));
-            item.setHeight(Integer.getInteger(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_HEIGHT))));
-            item.setPokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL)));
+            item.setWeight(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_WEIGHT)));
+            item.setHeight(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_HEIGHT)));
+
+            pf.add(new  PokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL))));
+            //item.setPokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL)));/*****/
+            item.setPokeForms(pf);
             item.setPokeSprites((cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_AVATAR))));
-            item.setPokeTypes(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
+            //item.setPokeTypes(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
+            pt.add(new PokeTypes(new PokeType(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)))));
+            item.setPokeTypes(pt);//cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));//todo array
 
         }
 

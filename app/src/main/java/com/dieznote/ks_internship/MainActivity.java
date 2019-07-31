@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Pokemon Search");
-
         inLandscapeMode = findViewById(R.id.fragment_2) != null;
 
         firstFragment = (FirstFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_1);
@@ -78,12 +76,30 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
     }*/
 
     @Override
-    public void onOkButtonSelected(NetResponse response) {
+    public void onItemSelected(NetResponse response) {
         if (inLandscapeMode) {
+            //показать в фрагменте справа
+
             secondFragment.displayPersonInfo(response);
         } else {
+            //передать в фрагменте в новом активити
+
+
+            //String pokeNameString,//
+            // String pokeHeightString,
+            // String pokeWeightString,
+            // String pokeSpeciesString,
+            // int pokeIdString,
+            // String pokeUrlString,
+            // String pokeIconString
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            //intent.putExtra("response", response);
+            intent.putExtra("pokeNameString", response.getName());
+            intent.putExtra("pokeHeightString", response.getHeight());
+            intent.putExtra("pokeWeightString", response.getWeight());
+            intent.putExtra("pokeSpeciesString", response.getPokeSpecies().getName());
+            intent.putExtra("pokeIdString", response.getId());
+            intent.putExtra("pokeUrlString", response.getPokeForms().get(0).getUrl());
+            intent.putExtra("pokeIconString", response.getPokeSprites().getFront_default());
             startActivity(intent);
         }
     }

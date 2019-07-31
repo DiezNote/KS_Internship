@@ -4,5 +4,5 @@ import com.dieznote.ks_internship.models.NetResponse;
 import com.dieznote.ks_internship.models.Person;
 
 public interface ButtonSelectListener {
-    public void onOkButtonSelected(NetResponse response);
+    public void onItemSelected(NetResponse response);
 }

@@ -5,11 +5,11 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NetResponse {
     //GitResponse
-    //весь Гсон ответ
 
     @SerializedName("abilities")
     private List<PokeAbilities> pokeAbilities;
@@ -21,7 +21,7 @@ public class NetResponse {
     private List<PokeForms> pokeForms;
 
     @SerializedName("height")
-    private int height;//todo mb i String
+    private String height;//todo mb i String
 
     @SerializedName("held_items")
     private List<PokeHeldItems> pokeHeldItems;
@@ -54,7 +54,7 @@ public class NetResponse {
     private List<PokeTypes> pokeTypes;
 
     @SerializedName("weight")
-    private int weight;
+    private String weight;
 
     public List<PokeAbilities> getPokeAbilities() {
         return pokeAbilities;
@@ -79,15 +79,15 @@ public class NetResponse {
     public void setPokeForms(List<PokeForms> pokeForms) {
         this.pokeForms = pokeForms;
     }
-    public void setPokeForms(String pokeForms) {
+    /*public void setPokeForms(String pokeForms) {
         this.pokeForms.add(new PokeForms(pokeForms));
-    }
+    }*/
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
@@ -147,7 +147,7 @@ public class NetResponse {
         this.pokeSpecies = pokeSpecies;
     }
     public void setPokeSpecies(String stringPokeSpecies) {
-        this.pokeSpecies.setName(stringPokeSpecies);
+        this.pokeSpecies=new PokeSpecies(stringPokeSpecies);
     }
 
     public PokeSprites getPokeSprites() {
@@ -158,7 +158,7 @@ public class NetResponse {
         this.pokeSprites = pokeSprites;
     }
     public void setPokeSprites(String pokeSprites) {
-        this.pokeSprites.setFront_default(pokeSprites);
+        this.pokeSprites = new PokeSprites(pokeSprites);
     }
 
     public List<PokeStats> getPokeStats() {
@@ -176,15 +176,12 @@ public class NetResponse {
     public void setPokeTypes(List<PokeTypes> pokeTypes) {
         this.pokeTypes = pokeTypes;
     }
-    public void setPokeTypes(String pokeType) {
-        this.pokeTypes.add(new PokeTypes(new PokeType(pokeType)));
-    }
 
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 

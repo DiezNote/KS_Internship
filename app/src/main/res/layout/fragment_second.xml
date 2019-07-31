@@ -23,6 +23,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/secondFR_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="153dp"
+                android:src="@drawable/ic_account_multiple_grey600_24dp"/>
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
@@ -31,7 +37,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/secondFR_First_name"
+                android:id="@+id/secondFR_Poke_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -78,11 +84,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fab_margin"
-                android:text="@string/mail"
+                android:text="@string/textview_height"
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/secondFR_mail"
+                android:id="@+id/secondFR_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@string/textview_weight"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/secondFR_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@string/textview_id"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/secondFR_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:text="@string/textview_info"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/secondFR_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"

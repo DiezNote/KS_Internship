@@ -51,6 +51,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
     ArrayList<Person> persons;
     RecyclerView recyclerView;
 
+
     private EditText searchQueryInput;
     private AppCompatButton goButton;
     private ProgressBar progressBar;
@@ -118,8 +119,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
             @Override
             public void onItemClick(View v, int position, int id) {
                 //openInfo(id);
-                Toast t = Toast.makeText(getContext(),"Нажатие на "+position,Toast.LENGTH_SHORT);
-                t.show();
+                buttonSelectListener.onItemSelected(adapter.getItem(position));
             }
         });
 

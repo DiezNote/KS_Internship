@@ -25,4 +25,10 @@ public class PokeSpecies {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public PokeSpecies(String name) {
+        this.name = name;
+    }
 }
+
+

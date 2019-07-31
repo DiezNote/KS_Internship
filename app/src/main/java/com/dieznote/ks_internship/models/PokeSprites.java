@@ -11,6 +11,10 @@ public class PokeSprites {
     private String front_female;
     private String front_shiny_female;
 
+    public PokeSprites(String front_default) {
+        this.front_default = front_default;
+    }
+
     public String getBack_default() {
         return back_default;
     }
