@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NetResponse {
-    //GitResponse
 
     @SerializedName("abilities")
     private List<PokeAbilities> pokeAbilities;
@@ -21,7 +20,7 @@ public class NetResponse {
     private List<PokeForms> pokeForms;
 
     @SerializedName("height")
-    private String height;//todo mb i String
+    private String height;
 
     @SerializedName("held_items")
     private List<PokeHeldItems> pokeHeldItems;
@@ -42,7 +41,7 @@ public class NetResponse {
     private String name;
 
     @SerializedName("species")
-    private PokeSpecies pokeSpecies;//вид
+    private PokeSpecies pokeSpecies;
 
     @SerializedName("sprites")
     private PokeSprites pokeSprites;
@@ -79,9 +78,6 @@ public class NetResponse {
     public void setPokeForms(List<PokeForms> pokeForms) {
         this.pokeForms = pokeForms;
     }
-    /*public void setPokeForms(String pokeForms) {
-        this.pokeForms.add(new PokeForms(pokeForms));
-    }*/
 
     public String getHeight() {
         return height;
@@ -146,8 +142,9 @@ public class NetResponse {
     public void setPokeSpecies(PokeSpecies pokeSpecies) {
         this.pokeSpecies = pokeSpecies;
     }
+
     public void setPokeSpecies(String stringPokeSpecies) {
-        this.pokeSpecies=new PokeSpecies(stringPokeSpecies);
+        this.pokeSpecies = new PokeSpecies(stringPokeSpecies);
     }
 
     public PokeSprites getPokeSprites() {
@@ -157,6 +154,7 @@ public class NetResponse {
     public void setPokeSprites(PokeSprites pokeSprites) {
         this.pokeSprites = pokeSprites;
     }
+
     public void setPokeSprites(String pokeSprites) {
         this.pokeSprites = new PokeSprites(pokeSprites);
     }

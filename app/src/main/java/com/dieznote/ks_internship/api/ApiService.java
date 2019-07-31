@@ -12,7 +12,4 @@ import retrofit2.http.Query;
 public interface ApiService {
     @GET("/api/v2/pokemon/{username}")
     Call<NetResponse> searchRepos(@Path("username") String username);
-
-    /*@GET("/users/{username}/repos")
-    Call<List<ResponseItem>> getReposByUserName(@Path("username") String username);*/
 }

@@ -51,6 +51,7 @@ public class SecondFragment extends Fragment {
     public void displayPersonInfo(NetResponse response) {
 
         pokeName.setText(response.getName());
+        pokeType.setText(response.getPokeTypes().get(0).getType().getName());
         pokeHeight.setText(response.getHeight());
         pokeWeight.setText(response.getWeight());
         pokeSpecies.setText(response.getPokeSpecies().getName());
@@ -61,9 +62,11 @@ public class SecondFragment extends Fragment {
                 .load(response.getPokeSprites().getFront_default())
                 .into(pokeIcon);
     }
-    public void displayPersonInfo(String pokeNameString,String pokeHeightString,String pokeWeightString,String pokeSpeciesString,int pokeIdString,String pokeUrlString,String pokeIconString) {
+
+    public void displayPersonInfo(String pokeNameString, String pokeTypeString, String pokeHeightString, String pokeWeightString, String pokeSpeciesString, int pokeIdString, String pokeUrlString, String pokeIconString) {
 
         pokeName.setText(pokeNameString);
+        pokeType.setText(pokeTypeString);
         pokeHeight.setText(pokeHeightString);
         pokeWeight.setText(pokeWeightString);
         pokeSpecies.setText(pokeSpeciesString);

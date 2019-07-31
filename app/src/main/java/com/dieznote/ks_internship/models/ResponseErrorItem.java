@@ -3,7 +3,7 @@ package com.dieznote.ks_internship.models;
 import java.util.Objects;
 
 public class ResponseErrorItem {
-    //GitRepoErrorItem
+
     private String message;
     private String documentation_url;
 

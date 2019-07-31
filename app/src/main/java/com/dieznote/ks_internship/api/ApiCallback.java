@@ -11,7 +11,6 @@ import retrofit2.Converter;
 import retrofit2.Response;
 
 public abstract class ApiCallback<T> implements Callback<T> {
-    //todo: наладить имена
 
     public abstract void success(Response<T> response);
 

@@ -39,9 +39,11 @@ public class RestClient {
         service = retrofit.create(ApiService.class);
 
     }
+
     public static RestClient getInstance() {
         return sInstance;
     }
+
     public ApiService getService() {
         return service;
     }

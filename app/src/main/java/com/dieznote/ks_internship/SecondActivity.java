@@ -18,16 +18,15 @@ public class SecondActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String responseUrl = getIntent().getStringExtra("responseUrl");
-        //person = (Person) getIntent().getParcelableExtra("person");
         itemDetailFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_two);
         String pokeNameString = getIntent().getStringExtra("pokeNameString");
+        String pokeTypeString = getIntent().getStringExtra("pokeTypeString");
         String pokeHeightString = getIntent().getStringExtra("pokeHeightString");
         String pokeWeightString = getIntent().getStringExtra("pokeWeightString");
         String pokeSpeciesString = getIntent().getStringExtra("pokeSpeciesString");
         int pokeIdString = getIntent().getIntExtra("pokeIdString",0);
         String pokeUrlString = getIntent().getStringExtra("pokeUrlString");
         String pokeIconString = getIntent().getStringExtra("pokeIconString");
-        itemDetailFragment.displayPersonInfo(pokeNameString,pokeHeightString,pokeWeightString,pokeSpeciesString,pokeIdString,pokeUrlString,pokeIconString);
+        itemDetailFragment.displayPersonInfo(pokeNameString,pokeTypeString,pokeHeightString,pokeWeightString,pokeSpeciesString,pokeIdString,pokeUrlString,pokeIconString);
     }
 }

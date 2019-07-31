@@ -35,12 +35,11 @@ import com.dieznote.ks_internship.models.NetResponse;
 import com.dieznote.ks_internship.models.Person;
 import com.dieznote.ks_internship.R;
 import com.dieznote.ks_internship.models.ResponseErrorItem;
-import com.dieznote.ks_internship.utils.ApplicationSettingsManager;
 import com.dieznote.ks_internship.utils.Consts;
 import com.dieznote.ks_internship.utils.Database;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
 
 import retrofit2.Response;
@@ -48,7 +47,6 @@ import retrofit2.Response;
 
 public class FirstFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    ArrayList<Person> persons;
     RecyclerView recyclerView;
 
 
@@ -118,7 +116,6 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
         adapter = new ResponseRecyclerAdapter(database.getAllData(), getContext(), new OnTaskRecyclerItemClickListener() {
             @Override
             public void onItemClick(View v, int position, int id) {
-                //openInfo(id);
                 buttonSelectListener.onItemSelected(adapter.getItem(position));
             }
         });
@@ -154,7 +151,8 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onLoaderReset(Loader<Cursor> loader) {
 
     }
-    private void openInfo(Uri url) {
+
+    /*private void openInfo(Uri url) {
         try {
             Intent myIntent = new Intent(Intent.ACTION_VIEW, url);
             startActivity(myIntent);
@@ -162,10 +160,11 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
             Toast.makeText(getContext(), "No application can handle this request." + " Please install a webbrowser", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-    }
+    }*/
     private void doRequest(String query) {
-            searchReposByName(query);
+        searchReposByName(query);
     }
+
     private void searchReposByName(String name) {
         showProgressBlock();
         RestClient.getInstance().getService().searchRepos(name).enqueue(new ApiCallback<NetResponse>() {
@@ -183,6 +182,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
             }
         });
     }
+
     private void updateList(NetResponse itemsToUpdate) {
         database.addApiData(itemsToUpdate);
         Objects.requireNonNull(getActivity()).getLoaderManager().getLoader(Consts.LOADER_ID).forceLoad();
@@ -195,19 +195,23 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
             makeErrorToast(errorItem.getMessage() + errorItem.getDocumentation_url());
         }
     }
+
     private void makeErrorToast(String errorMessage) {
         Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
+
     private void showProgressBlock() {
         if (progressBar != null) {
             progressBar.setVisibility(View.VISIBLE);
         }
     }
+
     private void hideProgressBlock() {
         if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
         }
     }
+
     /**
      * Subclass of {@link android.content.CursorLoader} which provides loader associated
      * with application database's implementation.

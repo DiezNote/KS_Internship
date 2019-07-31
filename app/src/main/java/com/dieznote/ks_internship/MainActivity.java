@@ -13,7 +13,6 @@ import com.dieznote.ks_internship.Fragments.FirstFragment;
 import com.dieznote.ks_internship.Fragments.SecondFragment;
 import com.dieznote.ks_internship.Listeners.ButtonSelectListener;
 import com.dieznote.ks_internship.Listeners.OnTaskRecyclerItemClickListener;
-//import com.dieznote.ks_internship.adapters.TaskRecyclerAdapter;
 import com.dieznote.ks_internship.models.NetResponse;
 import com.dieznote.ks_internship.models.Person;
 
@@ -64,17 +63,6 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         return super.onOptionsItemSelected(item);
     }
 
-    /*@Override
-    public void onOkButtonSelected(Person person) {
-        if (inLandscapeMode) {
-            secondFragment.displayPersonInfo(person);
-        } else {
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            intent.putExtra("person", person);
-            startActivity(intent);
-        }
-    }*/
-
     @Override
     public void onItemSelected(NetResponse response) {
         if (inLandscapeMode) {
@@ -84,16 +72,9 @@ public class MainActivity extends AppCompatActivity implements ButtonSelectListe
         } else {
             //передать в фрагменте в новом активити
 
-
-            //String pokeNameString,//
-            // String pokeHeightString,
-            // String pokeWeightString,
-            // String pokeSpeciesString,
-            // int pokeIdString,
-            // String pokeUrlString,
-            // String pokeIconString
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("pokeNameString", response.getName());
+            intent.putExtra("pokeTypeString", response.getPokeTypes().get(0).getType().getName());
             intent.putExtra("pokeHeightString", response.getHeight());
             intent.putExtra("pokeWeightString", response.getWeight());
             intent.putExtra("pokeSpeciesString", response.getPokeSpecies().getName());

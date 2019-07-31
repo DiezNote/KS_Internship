@@ -25,17 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseRecyclerAdapter.ViewHolder> {
-    //GitRepoRecyclerAdapter
-    //todo: наладить имена
-     private Context ctx;
-     private OnTaskRecyclerItemClickListener listener;
+
+    private Context ctx;
+    private OnTaskRecyclerItemClickListener listener;
 
     public ResponseRecyclerAdapter(Cursor cursor, Context ctx) {
         super(ctx, cursor);
         this.ctx = ctx;
     }
 
-    public ResponseRecyclerAdapter(Cursor cursor, Context ctx, OnTaskRecyclerItemClickListener listener){
+    public ResponseRecyclerAdapter(Cursor cursor, Context ctx, OnTaskRecyclerItemClickListener listener) {
         super(ctx, cursor);
         this.ctx = ctx;
         this.listener = listener;
@@ -61,7 +60,7 @@ public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseR
 
     @Override
     public void onBindViewHolder(ResponseRecyclerAdapter.ViewHolder holder, Cursor cursor) {
-        holder.description.setText("type: "+cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
+        holder.description.setText("type: " + cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
         holder.name.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_NAME)));
         Glide.with(holder.avatar).load(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_AVATAR))).placeholder(R.drawable.ic_account_multiple_grey600_24dp).into(holder.avatar);
 
@@ -81,18 +80,17 @@ public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseR
             item.setWeight(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_WEIGHT)));
             item.setHeight(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_HEIGHT)));
 
-            pf.add(new  PokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL))));
-            //item.setPokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL)));/*****/
+            pf.add(new PokeForms(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_URL))));
             item.setPokeForms(pf);
             item.setPokeSprites((cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_AVATAR))));
-            //item.setPokeTypes(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
             pt.add(new PokeTypes(new PokeType(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)))));
-            item.setPokeTypes(pt);//cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));//todo array
+            item.setPokeTypes(pt);
 
         }
 
         return item;
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
