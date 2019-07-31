@@ -6,4 +6,5 @@ import android.view.View;
 public interface OnTaskRecyclerItemClickListener {
     //OnGitRepoRecyclerItemClickListener
     public void onItemClick(View view, int position, int id);
+
 }

@@ -177,7 +177,7 @@ public class NetResponse {
         this.pokeTypes = pokeTypes;
     }
     public void setPokeTypes(String pokeType) {
-        this.pokeTypes.add(new PokeTypes(pokeType));
+        this.pokeTypes.add(new PokeTypes(new PokeType(pokeType)));
     }
 
     public int getWeight() {

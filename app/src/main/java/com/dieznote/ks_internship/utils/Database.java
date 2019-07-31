@@ -44,11 +44,11 @@ public class Database {
     private void addRec(NetResponse item) {
         ContentValues cv = new ContentValues();
         cv.put(Consts.DB_COL_ID, item.getId());
-        cv.put(Consts.DB_COL_SPECIES, item.getPokeSpecies().getName().toString());
+        cv.put(Consts.DB_COL_SPECIES, item.getPokeSpecies().getName());
         cv.put(Consts.DB_COL_NAME, item.getName());
         cv.put(Consts.DB_COL_URL, item.getPokeForms().get(0).getUrl());
         cv.put(Consts.DB_COL_POKE_AVATAR, item.getPokeSprites().getFront_default());
-        cv.put(Consts.DB_COL_POKE_TYPE, item.getPokeTypes().get(0).getName());//выдает только первый из возможного списка
+        cv.put(Consts.DB_COL_POKE_TYPE, item.getPokeTypes().get(0).getType().getName());//выдает только первый из возможного списка
         cv.put(Consts.DB_COL_HEIGHT, item.getHeight());
         cv.put(Consts.DB_COL_WEIGHT, item.getWeight());
 

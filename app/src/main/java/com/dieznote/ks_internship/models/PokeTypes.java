@@ -3,29 +3,29 @@ package com.dieznote.ks_internship.models;
 import com.google.gson.annotations.SerializedName;
 
 public class PokeTypes {
-    @SerializedName("name")
-    private String name;
+    @SerializedName("slot")
+    private String slot;
 
-    @SerializedName("url")
-    private String url;
+    @SerializedName("type")
+    private PokeType type;
 
-    public PokeTypes(String name) {
-        this.name = name;
+    public PokeTypes(PokeType type) {
+        this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public String getSlot() {
+        return slot;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSlot(String slot) {
+        this.slot = slot;
     }
 
-    public String getUrl() {
-        return url;
+    public PokeType getType() {
+        return type;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setType(PokeType type) {
+        this.type = type;
     }
 }

@@ -184,7 +184,7 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
     }
     private void updateList(NetResponse itemsToUpdate) {
         database.addApiData(itemsToUpdate);
-        getLoaderManager().getLoader(Consts.LOADER_ID).forceLoad();
+        getActivity().getLoaderManager().getLoader(Consts.LOADER_ID).forceLoad();
     }
 
     private void handleError(ResponseErrorItem errorItem) {

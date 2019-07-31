@@ -56,6 +56,7 @@ public class ResponseRecyclerAdapter extends CursorRecyclerViewAdapter<ResponseR
     @Override
     public void onBindViewHolder(ResponseRecyclerAdapter.ViewHolder holder, Cursor cursor) {
         holder.description.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_TYPE)));
+        //holder.description.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_WEIGHT)));
         holder.name.setText(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_NAME)));
         Glide.with(holder.avatar).load(cursor.getString(cursor.getColumnIndex(Consts.DB_COL_POKE_AVATAR))).placeholder(R.drawable.ic_account_multiple_grey600_24dp).into(holder.avatar);
 
